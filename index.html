@@ -53,7 +53,7 @@ footer{text-align:center;padding:50px 20px;color:#444;font-size:0.8rem;}
 #demoViewer.show{display:block;}
 .demoTop{display:flex;justify-content:space-between;align-items:center;max-width:700px;margin:0 auto 20px;}
 .demoCard{max-width:700px;margin:0 auto;background:#151515;border:1px solid #232323;border-radius:24px;overflow:hidden;}
-.demoHero{height:320px;display:flex;align-items:center;justify-content:center;font-size:2.2rem;font-weight:900;text-align:center;padding:20px;background-size:cover!important;background-position:center!important;text-shadow:0 2px 20px rgba(0,0,0,0.9);}
+.demoHero{height:480px;display:block;background-size:cover!important;background-position:center!important;border-bottom:1px solid #222;}
 .demoBody{padding:26px;}
 .actions{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;}
 .act{flex:1;background:#0a0a0a;border:1px solid #222;padding:12px;border-radius:12px;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;font-weight:700;}
@@ -144,7 +144,7 @@ footer{text-align:center;padding:50px 20px;color:#444;font-size:0.8rem;}
         <div class="cmtInput"><input id="cInput" placeholder="Leave a sweet comment..."/><button class="btn" style="margin:0;padding:12px 18px;" onclick="addComment()">Post</button></div>
         <div id="cList" class="cList"></div>
       </div>
-      <button class="btn" style="width:100%;justify-content:center;margin-top:25px;" onclick="openOrder()">I Want One Like This 🔥</button>
+      <button class="btn" style="width:100%;justify-content:center;margin-top:25px;" onclick="wantThis()">I Want One Like This 🔥</button>
     </div>
   </div>
 </div>
@@ -165,10 +165,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const demos={
-  birthday:{img:'https://flamemaster54.github.io/Flame-creations/birthday.jpg',icon:'🎂',title:'Happy Birthday My Love 🎂',text:'On your special day, I made you a whole website, not just a status. You are my favorite person, my blessing. May your year be as beautiful as your smile. I love you forever.'},
-  apology:{img:'https://flamemaster54.github.io/Flame-creations/apology.jpg',icon:'💔',title:'I Am Sorry Bbe 💔',text:'I know I messed up. Words failed me, so I made you this. Please forgive your boy. You mean more to me than my pride. I love you, I am sorry.'},
-  surprise:{img:'https://flamemaster54.github.io/Flame-creations/surprise.jpg',icon:'❤️',title:'FOR MY BBE ❤️',text:'This is a surprise website with falling flowers, 6 pages of love messages. You are my happiness, my peace, my everything. Forever yours, Flame.'},
-  loveletter:{img:'https://flamemaster54.github.io/Flame-creations/loveletter.jpg',icon:'💌',title:'My Love Letter To You 💌',text:'I love how you laugh, how you check me when I am trippin, how you make boring days feel like the best days. You are not just my girl, you are my best friend, my blessing.'}
+  birthday:{img:'https://flamemaster54.github.io/Flame-creations/birthday.jpg',title:'Happy Birthday My Love 🎂',text:'On your special day, I made you a whole website, not just a status. You are my favorite person, my blessing. May your year be as beautiful as your smile. I love you forever.',wa:'Birthday Website'},
+  apology:{img:'https://flamemaster54.github.io/Flame-creations/apology.jpg',title:'I Am Sorry Bbe 💔',text:'I know I messed up. Words failed me, so I made you this. Please forgive your boy. You mean more to me than my pride. I love you, I am sorry.',wa:'Apology Website'},
+  surprise:{img:'https://flamemaster54.github.io/Flame-creations/surprise.jpg',title:'FOR MY BBE ❤️',text:'This is a surprise website with falling flowers, 6 pages of love messages. You are my happiness, my peace, my everything. Forever yours, Flame.',wa:'Surprise Website'},
+  loveletter:{img:'https://flamemaster54.github.io/Flame-creations/loveletter.jpg',title:'My Love Letter To You 💌',text:'I love how you laugh, how you check me when I am trippin, how you make boring days feel like the best days. You are not just my girl, you are my best friend, my blessing.',wa:'Love Letter Website'}
 };
 let currentDemo=null;
 window.addEventListener('load',()=>{
@@ -188,11 +188,16 @@ window.openRecent=()=>{
   setTimeout(()=>{document.getElementById('recentLoading').style.display='none'; document.getElementById('recentChoices').style.display='block';},1200);
 }
 window.goWA=(c)=>{ window.location.href=`https://wa.me/263776072260?text=Hi%20Flame%20🔥%0A%0AI%20want:%20${encodeURIComponent(c)}%0A%0ACan%20you%20make%20it%20for%20me?`; }
+window.wantThis=()=>{
+  const data=demos[currentDemo];
+  if(!data) return openOrder();
+  const msg=`Hi Flame 🔥%0A%0AI want: ${encodeURIComponent(data.wa)}%0A%0AI saw this demo: ${encodeURIComponent(data.title)} - ${encodeURIComponent(location.href)}%0A%0ACan you make one like this for me?`;
+  window.location.href=`https://wa.me/263776072260?text=${msg}`;
+}
 window.openDemo=(type,push=true)=>{
   currentDemo=type;
   const data=demos[type];
   document.getElementById('demoHero').style.background=`url(${data.img}) center/cover no-repeat`;
-  document.getElementById('demoHero').innerText=`${data.icon} ${data.title}`;
   document.getElementById('demoTitle').innerText=data.title;
   document.getElementById('demoText').innerText=data.text;
   document.getElementById('recentModal').classList.remove('show');
