@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flame Creations - I Turn Feelings Into Websites</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',system-ui,sans-serif;}
+body{background:#0a0a0a;color:#fff;overflow-x:hidden;}
+#splash{position:fixed;inset:0;background:#0a0a0a;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity 0.6s ease;}
+#splash.hide{opacity:0;pointer-events:none;}
+#splash h1{font-size:3rem;font-weight:900;letter-spacing:-2px;animation:pop 1.2s ease infinite alternate;} #splash h1 span{color:#ff4d00;}
+#splash p{color:#555;letter-spacing:4px;font-size:0.7rem;margin-top:10px;}
+@keyframes pop{from{transform:scale(0.95)} to{transform:scale(1.05)}}
+.loader{width:40px;height:40px;border:3px solid #222;border-top-color:#ff4d00;border-radius:50%;margin-top:20px;animation:spin 1s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+header{padding:28px 20px;text-align:center;border-bottom:1px solid #1a1a1a;position:sticky;top:0;background:rgba(10,10,10,0.9);backdrop-filter:blur(10px);z-index:10;}
+header h1{font-size:2.2rem;font-weight:900;} header h1 span{color:#ff4d00;}
+header p{color:#666;margin-top:6px;letter-spacing:3px;font-size:0.7rem;font-weight:700;}
+.hero{padding:70px 25px 40px;text-align:center;}
+.hero h2{font-size:clamp(2.2rem,8vw,3.2rem);line-height:1.1;font-weight:900;}.hero h2 span{color:#ff4d00;}
+.hero.sub,.hero.sub{color:#aaa;max-width:520px;margin:18px auto;line-height:1.6;font-size:1.05rem;display:block;}
+.btn{display:inline-flex;align-items:center;gap:8px;background:#ff4d00;color:#fff;padding:17px 36px;border-radius:100px;text-decoration:none;font-weight:800;margin-top:18px;transition:0.2s;box-shadow:0 10px 30px rgba(255,77,0,0.3);border:none;cursor:pointer;}
+.btn-outline{background:transparent;border:1.5px solid #222;color:#fff;box-shadow:none;}
+.services{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:20px;max-width:720px;margin:20px auto;}
+.card{background:#151515;border:1px solid #232323;padding:26px;border-radius:22px;text-align:left;}
+.card h3{margin-bottom:8px;}.card p{color:#888;font-size:0.9rem;}
+.price{color:#ff4d00!important;font-weight:900;margin-top:14px;display:block;font-size:1.1rem;}
+.badges{max-width:720px;margin:0 auto;padding:0 20px 10px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.badge{background:#151515;border:1px solid #222;padding:8px 14px;border-radius:100px;font-size:0.78rem;color:#888;}
+.portfolio{padding:50px 20px;text-align:center;}
+.work{max-width:540px;margin:24px auto;background:#151515;border-radius:24px;overflow:hidden;border:1px solid #232323;text-align:left;display:block;text-decoration:none;color:inherit;transition:0.2s;}
+.work:hover{transform:scale(1.02);border-color:#ff4d00;}
+.testis{max-width:720px;margin:30px auto;padding:0 20px;display:grid;gap:12px;text-align:left;}
+.t{background:#151515;border:1px solid #232323;padding:18px 20px;border-radius:16px;font-size:0.9rem;color:#aaa;}
+.t b{color:#fff;display:block;margin-bottom:4px;}
+footer{text-align:center;padding:50px 20px;color:#444;font-size:0.8rem;}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(10px);z-index:999;display:none;align-items:center;justify-content:center;padding:20px;}
+.modal.show{display:flex;}
+.modalBox{background:#151515;border:1px solid #232323;border-radius:26px;max-width:420px;width:100%;padding:28px;animation:up 0.3s ease;}
+@keyframes up{from{transform:translateY(30px);opacity:0} to{transform:translateY(0);opacity:1}}
+.modalBox h3{font-size:1.5rem;font-weight:900;margin-bottom:5px;}.sm{color:#666;font-size:0.85rem;margin-bottom:20px;}
+.opt{display:flex;align-items:center;gap:12px;background:#0a0a0a;border:1px solid #222;padding:16px;border-radius:16px;margin-bottom:10px;cursor:pointer;transition:0.2s;text-align:left;width:100%;}
+.opt:hover{border-color:#ff4d00;background:#1a1a1a;}
+.opt b{color:#fff;display:block;}.opt i{color:#777;font-size:0.8rem;font-style:normal;}
+#demoViewer{position:fixed;inset:0;background:#0a0a0a;z-index:1000;display:none;overflow-y:auto;padding:20px;}
+#demoViewer.show{display:block;}
+.demoTop{display:flex;justify-content:space-between;align-items:center;max-width:700px;margin:0 auto 20px;}
+.demoCard{max-width:700px;margin:0 auto;background:#151515;border:1px solid #232323;border-radius:24px;overflow:hidden;}
+.demoHero{height:260px;display:flex;align-items:center;justify-content:center;font-size:2.4rem;font-weight:900;text-align:center;padding:20px;}
+.demoBody{padding:26px;}
+.actions{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;}
+.act{flex:1;background:#0a0a0a;border:1px solid #222;padding:12px;border-radius:12px;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;font-weight:700;}
+.act.liked{border-color:#ff4d00;color:#ff4d00;}
+.comments{margin-top:25px;}
+.cmtInput{display:flex;gap:10px;margin-top:10px;}
+.cmtInput input{flex:1;background:#0a0a0a;border:1px solid #222;padding:12px 15px;border-radius:12px;color:#fff;outline:none;}
+.cList{margin-top:15px;display:grid;gap:10px;}
+.cItem{background:#0a0a0a;border:1px solid #1e1e1e;padding:12px 14px;border-radius:12px;font-size:0.9rem;color:#aaa;}
+.cItem b{color:#fff;font-size:0.85rem;}
+</style>
+</head>
+<body>
+
+<div id="splash"><h1>FLAME<span>.</span></h1><p>CREATIONS</p><div class="loader"></div></div>
+<header><h1>FLAME<span>.</span></h1><p>I CREATE EMOTIONAL WEBSITES</p></header>
+
+<div class="hero">
+  <h2>I Turn Your <span>Feelings</span> Into A Website</h2>
+  <p class="sub">Apology, love surprise, birthday, love letter — I make a website that will make them cry, smile and forgive you. Delivered in 24hrs.</p>
+  <button class="btn" onclick="openOrder()">Order On WhatsApp 💬</button>
+</div>
+
+<div class="badges">
+  <div class="badge">✓ Your Name & Photos</div>
+  <div class="badge">✓ Your Colors & Words</div>
+  <div class="badge">✓ Link In 24hrs</div>
+</div>
+
+<div class="services">
+  <div class="card"><h3>💔 Apology</h3><p>When sorry is not enough.</p><span class="price">From $5</span></div>
+  <div class="card"><h3>❤️ Surprise</h3><p>FOR MY BBE style.</p><span class="price">From $5</span></div>
+  <div class="card"><h3>🎂 Birthday</h3><p>Whole website for their birthday.</p><span class="price">From $7</span></div>
+  <div class="card"><h3>💌 Love Letter</h3><p>Sweet messages in luxury design.</p><span class="price">From $5</span></div>
+</div>
+
+<div class="portfolio">
+  <h2 style="font-size:2.1rem;font-weight:900;">Recent Work</h2>
+  <p style="color:#666;margin-top:8px;">Tap to view</p>
+  <a class="work" href="https://flamemaster54.github.io/FOR-MY-BBE/" target="_blank">
+    <div style="background:linear-gradient(135deg,#ff4d00,#ff9a00);height:220px;display:flex;align-items:center;justify-content:center;font-size:2.2rem;font-weight:900;text-align:center;">FOR MY BBE ❤️</div>
+    <div style="padding:18px;"><h3>Client Surprise Project 🔥</h3><p style="color:#777;font-size:0.9rem;">6-page surprise website with falling flowers. Client said she cried.</p></div>
+  </a>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:15px;">
+    <button class="btn" onclick="openOrder()">I Want One Like This 🔥</button>
+    <button class="btn btn-outline" onclick="openRecent()">View Recent Work</button>
+  </div>
+  <div class="testis">
+    <div class="t"><b>🇿🇼 Tadiwa — Harare</b>“Bro she forgave me after 2 weeks of blue ticks. Your site did it in 10 mins.”</div>
+    <div class="t"><b>🇿🇼 Blessing — Gweru</b>“She was crying on video call. Thank you Flame, worth every dollar.”</div>
+  </div>
+</div>
+
+<div id="orderModal" class="modal" onclick="if(event.target==this)this.classList.remove('show')">
+  <div class="modalBox">
+    <div id="oLoad" style="text-align:center;padding:20px 0;"><div class="loader" style="margin:0 auto 15px;"></div><p style="color:#888;">Loading options...</p></div>
+    <div id="oOpt" style="display:none;">
+      <h3>What do you want? 🔥</h3><p class="sm">Choose one, I'll take you to WhatsApp</p>
+      <button class="opt" onclick="goWA('Apology Website')"><span>💔</span><div><b>Apology Website</b><i>$5 - Make them forgive you</i></div></button>
+      <button class="opt" onclick="goWA('Surprise Website')"><span>❤️</span><div><b>Surprise Website</b><i>$5 - FOR MY BBE style</i></div></button>
+      <button class="opt" onclick="goWA('Birthday Website')"><span>🎂</span><div><b>Birthday Website</b><i>$7 - Birthday site</i></div></button>
+      <button class="opt" onclick="goWA('Love Letter Website')"><span>💌</span><div><b>Love Letter Site</b><i>$5 - Love letter</i></div></button>
+      <button class="btn btn-outline" style="width:100%;justify-content:center;margin-top:10px;" onclick="document.getElementById('orderModal').classList.remove('show')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div id="recentModal" class="modal" onclick="if(event.target==this)this.classList.remove('show')">
+  <div class="modalBox">
+    <div id="recentLoading" style="text-align:center;padding:20px 0;"><div class="loader" style="margin:0 auto 15px;"></div><p style="color:#888;">Loading demos...</p></div>
+    <div id="recentChoices" style="display:none;">
+      <h3>View Recent Work 👀</h3><p class="sm">Pick a type to see real example</p>
+      <button class="opt" onclick="openDemo('apology')"><span>💔</span><div><b>Apology Demo</b><i>See apology example</i></div></button>
+      <button class="opt" onclick="openDemo('surprise')"><span>❤️</span><div><b>Surprise Demo</b><i>FOR MY BBE style</i></div></button>
+      <button class="opt" onclick="openDemo('birthday')"><span>🎂</span><div><b>Birthday Demo</b><i>Happy Birthday page</i></div></button>
+      <button class="opt" onclick="openDemo('loveletter')"><span>💌</span><div><b>Love Letter Demo</b><i>Sweet letter design</i></div></button>
+      <button class="btn btn-outline" style="width:100%;justify-content:center;margin-top:10px;" onclick="document.getElementById('recentModal').classList.remove('show')">Close</button>
+    </div>
+  </div>
+</div>
+
+<div id="demoViewer">
+  <div class="demoTop"><button class="btn btn-outline" style="margin:0;" onclick="closeDemo()">← Back</button><button class="btn" style="margin:0;" onclick="shareDemo()">Share to WhatsApp ↗️</button></div>
+  <div class="demoCard">
+    <div id="demoHero" class="demoHero"></div>
+    <div class="demoBody">
+      <h2 id="demoTitle" style="font-size:1.8rem;font-weight:900;"></h2>
+      <p id="demoText" style="color:#aaa;margin-top:10px;line-height:1.6;"></p>
+      <div class="actions">
+        <button id="likeBtn" class="act" onclick="toggleLike()">❤️ <span id="likeCount">0</span> Likes</button>
+        <button class="act" onclick="document.getElementById('cInput').focus()">💬 Comment</button>
+        <button class="act" onclick="shareDemo()">↗️ Share</button>
+      </div>
+      <div class="comments">
+        <h4 style="margin-top:10px;">Comments</h4>
+        <div class="cmtInput"><input id="cInput" placeholder="Leave a sweet comment..."/><button class="btn" style="margin:0;padding:12px 18px;" onclick="addComment()">Post</button></div>
+        <div id="cList" class="cList"></div>
+      </div>
+      <button class="btn" style="width:100%;justify-content:center;margin-top:25px;" onclick="openOrder()">I Want One Like This 🔥</button>
+    </div>
+  </div>
+</div>
+
+<footer>Made with ❤️ by Flame | Gweru, ZW<br>© 2026 Flame Creations</footer>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getDatabase, ref, onValue, push, set, runTransaction } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDNa4NB9PISIk3cQq18uYGmCff371oSv1Q",
+  authDomain: "flame-creations.firebaseapp.com",
+  databaseURL: "https://flame-creations-default-rtdb.firebaseio.com",
+  projectId: "flame-creations",
+  storageBucket: "flame-creations.firebasestorage.app",
+  messagingSenderId: "749525418230",
+  appId: "1:749525418230:web:2c479ff69bf3126cb8acd7",
+  measurementId: "G-NQ5065MVVW"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+const demos={
+  birthday:{hero:'linear-gradient(135deg,#ff4d9e,#ff9a00)',icon:'🎂',title:'Happy Birthday My Love 🎂',text:'On your special day, I made you a whole website, not just a status. You are my favorite person, my blessing. May your year be as beautiful as your smile. I love you forever.'},
+  apology:{hero:'linear-gradient(135deg,#6a5cff,#ff4d00)',icon:'💔',title:'I Am Sorry Bbe 💔',text:'I know I messed up. Words failed me, so I made you this. Please forgive your boy. You mean more to me than my pride. I love you, I am sorry.'},
+  surprise:{hero:'linear-gradient(135deg,#ff4d00,#ff9a00)',icon:'❤️',title:'FOR MY BBE ❤️',text:'This is a surprise website with falling flowers, 6 pages of love messages. You are my happiness, my peace, my everything. Forever yours, Flame.'},
+  loveletter:{hero:'linear-gradient(135deg,#ff4d6a,#ff8a00)',icon:'💌',title:'My Love Letter To You 💌',text:'I love how you laugh, how you check me when I am trippin, how you make boring days feel like the best days. You are not just my girl, you are my best friend, my blessing.'}
+};
+let currentDemo=null;
+
+window.addEventListener('load',()=>{
+  setTimeout(()=>{document.getElementById('splash').classList.add('hide');},2500);
+  const params=new URLSearchParams(location.search);
+  const d=params.get('demo');
+  if(d && demos[d]) openDemo(d,false);
+});
+
+window.openOrder=()=>{
+  const m=document.getElementById('orderModal'); m.classList.add('show');
+  document.getElementById('oLoad').style.display='block'; document.getElementById('oOpt').style.display='none';
+  setTimeout(()=>{document.getElementById('oLoad').style.display='none'; document.getElementById('oOpt').style.display='block';},1200);
+}
+window.openRecent=()=>{
+  const m=document.getElementById('recentModal'); m.classList.add('show');
+  document.getElementById('recentLoading').style.display='block'; document.getElementById('recentChoices').style.display='none';
+  setTimeout(()=>{document.getElementById('recentLoading').style.display='none'; document.getElementById('recentChoices').style.display='block';},1200);
+}
+window.goWA=(c)=>{ window.location.href=`https://wa.me/263776072260?text=Hi%20Flame%20🔥%0A%0AI%20want:%20${encodeURIComponent(c)}%0A%0ACan%20you%20make%20it%20for%20me?`; }
+
+window.openDemo=(type,push=true)=>{
+  currentDemo=type;
+  const data=demos[type];
+  document.getElementById('demoHero').style.background=data.hero;
+  document.getElementById('demoHero').innerText=`${data.icon} ${data.title}`;
+  document.getElementById('demoTitle').innerText=data.title;
+  document.getElementById('demoText').innerText=data.text;
+  document.getElementById('recentModal').classList.remove('show');
+  document.getElementById('demoViewer').classList.add('show');
+  listenLikes(); listenComments();
+  if(push){ const url=new URL(location); url.searchParams.set('demo',type); history.pushState({},'',url); }
+}
+window.closeDemo=()=>{
+  document.getElementById('demoViewer').classList.remove('show');
+  const url=new URL(location); url.searchParams.delete('demo'); history.pushState({},'',url);
+}
+
+function listenLikes(){
+  const likeRef=ref(db,`likes/${currentDemo}`);
+  onValue(likeRef,(snap)=>{
+    document.getElementById('likeCount').innerText=snap.val()||0;
+  });
+  document.getElementById('likeBtn').classList.toggle('liked',localStorage.getItem('liked_'+currentDemo)==='1');
+}
+window.toggleLike=()=>{
+  if(localStorage.getItem('liked_'+currentDemo)==='1'){ alert('You already liked ❤️'); return; }
+  const likeRef=ref(db,`likes/${currentDemo}`);
+  runTransaction(likeRef,(cur)=> (cur||0)+1);
+  localStorage.setItem('liked_'+currentDemo,'1');
+  document.getElementById('likeBtn').classList.add('liked');
+}
+
+function listenComments(){
+  const cRef=ref(db,`comments/${currentDemo}`);
+  onValue(cRef,(snap)=>{
+    const list=document.getElementById('cList'); list.innerHTML='';
+    const data=snap.val(); if(!data) return;
+    Object.values(data).reverse().forEach(c=>{
+      const d=document.createElement('div'); d.className='cItem'; d.innerHTML=`<b>${c.name} • </b>${c.text}`;
+      list.appendChild(d);
+    });
+  });
+}
+window.addComment=()=>{
+  const input=document.getElementById('cInput'); const text=input.value.trim(); if(!text) return;
+  let name=localStorage.getItem('flame_user_name');
+  if(!name){
+    name=prompt('Enter your name before commenting:');
+    if(!name) return;
+    name=name.trim();
+    if(name.length<2) return alert('Enter valid name');
+    localStorage.setItem('flame_user_name',name);
+  }
+  const cRef=ref(db,`comments/${currentDemo}`);
+  const newRef=push(cRef);
+  set(newRef,{name:name,text:text,time:Date.now()});
+  input.value='';
+}
+
+window.shareDemo=()=>{
+  const shareUrl=`${location.origin}${location.pathname}?demo=${currentDemo}`;
+  const data=demos[currentDemo];
+  const message=`Yo check this ${data.title} by Flame Creations 🔥\n\n${data.text}\n\n👉 See it here: ${shareUrl}`;
+  window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+}
+</script>
+</body>
+</html>
