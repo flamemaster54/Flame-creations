@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Flame Creations - I Turn Feelings Into Websites</title>
-  <!-- WhatsApp Big Preview -->
 <meta property="og:title" content="Flame Creations - I Turn Feelings Into Websites" />
 <meta property="og:description" content="Apology, Surprise, Birthday, Love Letter — I make websites that make them cry, smile and forgive you. From $5. Delivered in 24hrs." />
 <meta property="og:image" content="https://flamemaster54.github.io/Flame-creations/preview.jpg" />
@@ -26,7 +25,7 @@ header h1{font-size:2.2rem;font-weight:900;} header h1 span{color:#ff4d00;}
 header p{color:#666;margin-top:6px;letter-spacing:3px;font-size:0.7rem;font-weight:700;}
 .hero{padding:70px 25px 40px;text-align:center;}
 .hero h2{font-size:clamp(2.2rem,8vw,3.2rem);line-height:1.1;font-weight:900;}.hero h2 span{color:#ff4d00;}
-.hero.sub,.hero.sub{color:#aaa;max-width:520px;margin:18px auto;line-height:1.6;font-size:1.05rem;display:block;}
+.hero.sub{color:#aaa;max-width:520px;margin:18px auto;line-height:1.6;font-size:1.05rem;display:block;}
 .btn{display:inline-flex;align-items:center;gap:8px;background:#ff4d00;color:#fff;padding:17px 36px;border-radius:100px;text-decoration:none;font-weight:800;margin-top:18px;transition:0.2s;box-shadow:0 10px 30px rgba(255,77,0,0.3);border:none;cursor:pointer;}
 .btn-outline{background:transparent;border:1.5px solid #222;color:#fff;box-shadow:none;}
 .services{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:20px;max-width:720px;margin:20px auto;}
@@ -54,7 +53,7 @@ footer{text-align:center;padding:50px 20px;color:#444;font-size:0.8rem;}
 #demoViewer.show{display:block;}
 .demoTop{display:flex;justify-content:space-between;align-items:center;max-width:700px;margin:0 auto 20px;}
 .demoCard{max-width:700px;margin:0 auto;background:#151515;border:1px solid #232323;border-radius:24px;overflow:hidden;}
-.demoHero{height:260px;display:flex;align-items:center;justify-content:center;font-size:2.4rem;font-weight:900;text-align:center;padding:20px;}
+.demoHero{height:320px;display:flex;align-items:center;justify-content:center;font-size:2.2rem;font-weight:900;text-align:center;padding:20px;background-size:cover!important;background-position:center!important;text-shadow:0 2px 20px rgba(0,0,0,0.9);}
 .demoBody{padding:26px;}
 .actions{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;}
 .act{flex:1;background:#0a0a0a;border:1px solid #222;padding:12px;border-radius:12px;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;font-weight:700;}
@@ -68,29 +67,24 @@ footer{text-align:center;padding:50px 20px;color:#444;font-size:0.8rem;}
 </style>
 </head>
 <body>
-
 <div id="splash"><h1>FLAME<span>.</span></h1><p>CREATIONS</p><div class="loader"></div></div>
 <header><h1>FLAME<span>.</span></h1><p>I CREATE EMOTIONAL WEBSITES</p></header>
-
 <div class="hero">
   <h2>I Turn Your <span>Feelings</span> Into A Website</h2>
   <p class="sub">Apology, love surprise, birthday, love letter — I make a website that will make them cry, smile and forgive you. Delivered in 24hrs.</p>
   <button class="btn" onclick="openOrder()">Order On WhatsApp 💬</button>
 </div>
-
 <div class="badges">
   <div class="badge">✓ Your Name & Photos</div>
   <div class="badge">✓ Your Colors & Words</div>
   <div class="badge">✓ Link In 24hrs</div>
 </div>
-
 <div class="services">
   <div class="card"><h3>💔 Apology</h3><p>When sorry is not enough.</p><span class="price">From $5</span></div>
   <div class="card"><h3>❤️ Surprise</h3><p>FOR MY BBE style.</p><span class="price">From $5</span></div>
   <div class="card"><h3>🎂 Birthday</h3><p>Whole website for their birthday.</p><span class="price">From $7</span></div>
   <div class="card"><h3>💌 Love Letter</h3><p>Sweet messages in luxury design.</p><span class="price">From $5</span></div>
 </div>
-
 <div class="portfolio">
   <h2 style="font-size:2.1rem;font-weight:900;">Recent Work</h2>
   <p style="color:#666;margin-top:8px;">Tap to view</p>
@@ -107,7 +101,6 @@ footer{text-align:center;padding:50px 20px;color:#444;font-size:0.8rem;}
     <div class="t"><b>🇿🇼 Blessing — Gweru</b>“She was crying on video call. Thank you Flame, worth every dollar.”</div>
   </div>
 </div>
-
 <div id="orderModal" class="modal" onclick="if(event.target==this)this.classList.remove('show')">
   <div class="modalBox">
     <div id="oLoad" style="text-align:center;padding:20px 0;"><div class="loader" style="margin:0 auto 15px;"></div><p style="color:#888;">Loading options...</p></div>
@@ -121,7 +114,6 @@ footer{text-align:center;padding:50px 20px;color:#444;font-size:0.8rem;}
     </div>
   </div>
 </div>
-
 <div id="recentModal" class="modal" onclick="if(event.target==this)this.classList.remove('show')">
   <div class="modalBox">
     <div id="recentLoading" style="text-align:center;padding:20px 0;"><div class="loader" style="margin:0 auto 15px;"></div><p style="color:#888;">Loading demos...</p></div>
@@ -135,7 +127,6 @@ footer{text-align:center;padding:50px 20px;color:#444;font-size:0.8rem;}
     </div>
   </div>
 </div>
-
 <div id="demoViewer">
   <div class="demoTop"><button class="btn btn-outline" style="margin:0;" onclick="closeDemo()">← Back</button><button class="btn" style="margin:0;" onclick="shareDemo()">Share to WhatsApp ↗️</button></div>
   <div class="demoCard">
@@ -157,13 +148,10 @@ footer{text-align:center;padding:50px 20px;color:#444;font-size:0.8rem;}
     </div>
   </div>
 </div>
-
 <footer>Made with ❤️ by Flame | Gweru, ZW<br>© 2026 Flame Creations</footer>
-
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getDatabase, ref, onValue, push, set, runTransaction } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
-
 const firebaseConfig = {
   apiKey: "AIzaSyDNa4NB9PISIk3cQq18uYGmCff371oSv1Q",
   authDomain: "flame-creations.firebaseapp.com",
@@ -174,25 +162,21 @@ const firebaseConfig = {
   appId: "1:749525418230:web:2c479ff69bf3126cb8acd7",
   measurementId: "G-NQ5065MVVW"
 };
-
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-
 const demos={
-  birthday:{hero:'linear-gradient(135deg,#ff4d9e,#ff9a00)',icon:'🎂',title:'Happy Birthday My Love 🎂',text:'On your special day, I made you a whole website, not just a status. You are my favorite person, my blessing. May your year be as beautiful as your smile. I love you forever.'},
-  apology:{hero:'linear-gradient(135deg,#6a5cff,#ff4d00)',icon:'💔',title:'I Am Sorry Bbe 💔',text:'I know I messed up. Words failed me, so I made you this. Please forgive your boy. You mean more to me than my pride. I love you, I am sorry.'},
-  surprise:{hero:'linear-gradient(135deg,#ff4d00,#ff9a00)',icon:'❤️',title:'FOR MY BBE ❤️',text:'This is a surprise website with falling flowers, 6 pages of love messages. You are my happiness, my peace, my everything. Forever yours, Flame.'},
-  loveletter:{hero:'linear-gradient(135deg,#ff4d6a,#ff8a00)',icon:'💌',title:'My Love Letter To You 💌',text:'I love how you laugh, how you check me when I am trippin, how you make boring days feel like the best days. You are not just my girl, you are my best friend, my blessing.'}
+  birthday:{img:'https://flamemaster54.github.io/Flame-creations/birthday.jpg',icon:'🎂',title:'Happy Birthday My Love 🎂',text:'On your special day, I made you a whole website, not just a status. You are my favorite person, my blessing. May your year be as beautiful as your smile. I love you forever.'},
+  apology:{img:'https://flamemaster54.github.io/Flame-creations/apology.jpg',icon:'💔',title:'I Am Sorry Bbe 💔',text:'I know I messed up. Words failed me, so I made you this. Please forgive your boy. You mean more to me than my pride. I love you, I am sorry.'},
+  surprise:{img:'https://flamemaster54.github.io/Flame-creations/surprise.jpg',icon:'❤️',title:'FOR MY BBE ❤️',text:'This is a surprise website with falling flowers, 6 pages of love messages. You are my happiness, my peace, my everything. Forever yours, Flame.'},
+  loveletter:{img:'https://flamemaster54.github.io/Flame-creations/loveletter.jpg',icon:'💌',title:'My Love Letter To You 💌',text:'I love how you laugh, how you check me when I am trippin, how you make boring days feel like the best days. You are not just my girl, you are my best friend, my blessing.'}
 };
 let currentDemo=null;
-
 window.addEventListener('load',()=>{
   setTimeout(()=>{document.getElementById('splash').classList.add('hide');},2500);
   const params=new URLSearchParams(location.search);
   const d=params.get('demo');
   if(d && demos[d]) openDemo(d,false);
 });
-
 window.openOrder=()=>{
   const m=document.getElementById('orderModal'); m.classList.add('show');
   document.getElementById('oLoad').style.display='block'; document.getElementById('oOpt').style.display='none';
@@ -204,11 +188,10 @@ window.openRecent=()=>{
   setTimeout(()=>{document.getElementById('recentLoading').style.display='none'; document.getElementById('recentChoices').style.display='block';},1200);
 }
 window.goWA=(c)=>{ window.location.href=`https://wa.me/263776072260?text=Hi%20Flame%20🔥%0A%0AI%20want:%20${encodeURIComponent(c)}%0A%0ACan%20you%20make%20it%20for%20me?`; }
-
 window.openDemo=(type,push=true)=>{
   currentDemo=type;
   const data=demos[type];
-  document.getElementById('demoHero').style.background=data.hero;
+  document.getElementById('demoHero').style.background=`url(${data.img}) center/cover no-repeat`;
   document.getElementById('demoHero').innerText=`${data.icon} ${data.title}`;
   document.getElementById('demoTitle').innerText=data.title;
   document.getElementById('demoText').innerText=data.text;
@@ -221,7 +204,6 @@ window.closeDemo=()=>{
   document.getElementById('demoViewer').classList.remove('show');
   const url=new URL(location); url.searchParams.delete('demo'); history.pushState({},'',url);
 }
-
 function listenLikes(){
   const likeRef=ref(db,`likes/${currentDemo}`);
   onValue(likeRef,(snap)=>{
@@ -236,7 +218,6 @@ window.toggleLike=()=>{
   localStorage.setItem('liked_'+currentDemo,'1');
   document.getElementById('likeBtn').classList.add('liked');
 }
-
 function listenComments(){
   const cRef=ref(db,`comments/${currentDemo}`);
   onValue(cRef,(snap)=>{
@@ -263,7 +244,6 @@ window.addComment=()=>{
   set(newRef,{name:name,text:text,time:Date.now()});
   input.value='';
 }
-
 window.shareDemo=()=>{
   const shareUrl=`${location.origin}${location.pathname}?demo=${currentDemo}`;
   const data=demos[currentDemo];
@@ -272,4 +252,4 @@ window.shareDemo=()=>{
 }
 </script>
 </body>
-</html>
+  </html>
